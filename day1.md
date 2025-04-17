@@ -2,7 +2,6 @@
 
 This file contains notes on fundamental Linux concepts, distributions, setup, and package managemer.
 
-
 ### 🔧 Linux Concepts
 
 - **Operating System (OS)**: A collection of applications and programs that run together, allowing users and applications to interact with hardware.
@@ -11,9 +10,7 @@ This file contains notes on fundamental Linux concepts, distributions, setup, an
 - **Applications**: Perform tasks such as process management, memory management, and network management.
 - **OS as a Bridge**: Acts as an intermediary between users and hardware.
 
-
 ### 🖥️ Types of Operating Systems
-
 #### 1. Graphical User Interface (GUI)
 
 - Applications
@@ -21,15 +18,13 @@ This file contains notes on fundamental Linux concepts, distributions, setup, an
 - System Packages and System Libraries
 - Kernel
 - Hardware
-
 #### 2. Command Line Interface (CLI)
 
 - Shell
 - System Packages and System Libraries
 - Kernel
 - Hardware
-
-### 🐧 Linux Distributions
+  ### 🐧 Linux Distributions
 
 Linux is open-source, allowing companies to create their own distributions by adding custom functionalities. Examples include:
 
@@ -66,7 +61,7 @@ Since the underlying system packages and libraries are consistent, applications 
 #### 🧩 Application
 
 - Converts graphical gestures into command-line instructions and vice versa.
-  ### 🧾 Commands
+### 🧾 Commands
 
 - **Command**: An instruction or set of instructions that must be executed to produce a valid output.
 
@@ -75,22 +70,17 @@ Since the underlying system packages and libraries are consistent, applications 
 - **`ls`**: Lists the files in the current directory.
 - **`ls -a`**: Lists all files, including hidden ones (those starting with a dot).
 - **`ls -l`**: Provides a detailed listing of files, including permissions, ownership, size, and modification date.
-
 #### Prompt Symbols
 
 - **`#`**: Indicates execution as the root user, who has full administrative privileges.
 - **`$`**: Indicates execution as a normal user with limited access.
-
 #### Example 
 
 ```bash
 root@localhost dir1#
 ```
-# 🖥️ History of Operating Systems
+### 🖥️ History of Operating Systems
 
----
-
-###🕰️ HISTORY OF LINUX:
 
 - **1960 – UNIX**
   - First operating system developed.
@@ -106,9 +96,7 @@ root@localhost dir1#
 
 - **2025 – Linux Dominance**
   - 90% of production workloads operate on Linux OS.
-  ### Why Linux?
-
----
+### Why Linux?
 
 #### Reasons to Choose Linux
 
