@@ -156,11 +156,9 @@ root@localhost dir1#
   ```
 ### PACKAGE MANAGER
 
----
 
 - Companies often build upon open-source Linux by adding their own libraries and package managers, resulting in new distributions.
 
----
 
 ####Package Manager Functions
 
@@ -168,8 +166,6 @@ root@localhost dir1#
 - **Upgrade**: Update to newer versions of packages.
 - **Removal**: Delete specific versions of packages.
 - **Maintenance**: Manage and maintain software packages.
-
----
 
 #### Ubuntu's Package Manager: `apt`
 
