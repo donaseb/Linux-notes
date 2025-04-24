@@ -65,7 +65,7 @@ Since the underlying system packages and libraries are consistent, applications 
 
 - **Command**: An instruction or set of instructions that must be executed to produce a valid output.
 
-####`ls` Command
+#### `ls` Command
 
 - **`ls`**: Lists the files in the current directory.
 - **`ls -a`**: Lists all files, including hidden ones (those starting with a dot).
