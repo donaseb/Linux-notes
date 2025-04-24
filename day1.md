@@ -148,7 +148,7 @@ root@localhost dir1#
 - Companies often build upon open-source Linux by adding their own libraries and package managers, resulting in new distributions.
 
 
-####Package Manager Functions
+#### Package Manager Functions
 
 - **Installation**: Deploy or install dependencies (e.g., install Java, Python).
 - **Upgrade**: Update to newer versions of packages.
