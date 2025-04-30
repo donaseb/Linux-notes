@@ -4,4 +4,5 @@ Welcome to my personal repositoy of Linux learning notes. This collection docume
 #### Table of Contents
 
 - [Day 1: Introduction to Linux](day1.md)
+- [Day 2: Folder structure in Linux ](day2.md)
 
