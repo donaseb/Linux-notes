@@ -62,6 +62,15 @@
 - mkdir directory name : crates new directory
 - mkdir dir1 dir2 dir3 : creates multiple directories together
 ## Copying -cp
-- cp source file destination file : copies the contents from source to destination file
+- cp <source file> <destination file> : copies the contents from source to destination file
 - if destination file does not exist it creates a file and then copies data into it
-- 
+- cp -r <source file or directoy > < destination file or direc> : copy contents from source to destination recursively
+## move mv:
+- mv <source> <destination> : cut from the source and paste it in destination
+- to rename a file or directory : mv <old name> <new name>
+## Deleting files and directories:
+- rm <filename> : to delete the file
+- rm -r <dirname> : to delete directory
+- rm -rf <dirname> : to delete directory without questions  
+
+
