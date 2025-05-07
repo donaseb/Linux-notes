@@ -38,13 +38,47 @@
    useradd dona
   - a user with name dona is created
  - /etc/passwd : contains all the users information
+ - create password for this user dona for this ```passwd dona``` then enter the password for this user
+ - How to check if password is created for the user :
+    ``` cat /etc/shadow ```
+   for this user we could find the encrypted password
+- if the user lost the password could you decrypt the password or retrieve the lost password of the user:
+   no, we cant decrypt or retrieve ,because it is highly encrpted,so it is one way encryption,so once a person lost we cant retrieve the password
 ### Fields of /etc/passwd:
-username : pwd :Uid : gid: gecos : homedir: loginshell
-
-
-** how to check if the user is created:
+username : pswd :Uid : gid: gecos : homedir: loginshell  
+1.username : name allocated to every user for user's reference  
+2 passsword (x): it defines that the  password is set and the information is stored in /etc/shadow  
+3 uid: user id unique number allocated to every user for system's reference  
+4 gid : group id is  te primary group of that particular user  
+5 gecos : is an optional field for a user that describes a user  
+ - it is not mandatory to define gecos ,it is only for users reference
+6 Home Directory : it defines the home directory allocated to a purticular user
+7 Loginshell : it defines the login shell allocated to a user ie bash,kshell,cshell etc 
+- create user and set password for that user:
+- ``` useradd dona``` create user
+- ```passwd dona ```set password for this user
+- if we dont create user with providing the values for all the options other than username and password then the system will assign some default values
+- all the fields excet gecos in /etc/passwd is mandatory fields needs to provided while creating user ,if not  system gives default values
+  *Default values:
+  - uid -previous user's id +1
+  - grpid- <username>  
+  - homedirectory - /home/username
+  - loginshell - /bin/bash
+- ** how to check if the user is created:
 - all the deatils of the user will be added inside the /etc/passwd file
 - open this /etc/passwd file and check the entry for the user
+### Creating user with specific values :
+- ``` useradd -u <uid> -g <primary group> -G <seconadry group > -c <gecos> -d <home directory> -s <loginshell>  <new username> ```
+- ```passwd <username>```
+- -u : defines the userid
+- -g : primary group
+- -G :seconary group
+- -c : defines the optional fieldfor users reference
+-```id username ``` : gives the groups to which it belongs
+### modify the user :
+``` usermod -u <userid> -g<primary group> -G <secondary group> -c <gecos> -d <home dir> -s <loginshell> <existing username>```  
+``` passwd <existing username > ```
+### Delete auser
 ** how to open the file
   ``` vim filename ```
   -using vim you can see the contents as well as you can edit the file
