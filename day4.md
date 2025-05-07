@@ -1,8 +1,8 @@
 # user management:
-#### Topics covered;
-1.user management
-2.file management
-3.vi shortcuts
+#### Topics covered
+1.user management  
+2.file management  
+3.vi shortcuts  
 ## User management:
 - user management is required for the accpountability and also for making your linux environment secure.
 - as part of the user mamagement you will create users and groups.
