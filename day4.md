@@ -115,9 +115,12 @@ username : pswd :Uid : gid: gecos : homedir: loginshell
 * Group List: It is a list of user names of users who are members of the group. The user names, must be separated by commas.
 ### create group :
 - to create group with default values : ``` groupadd <new groupname > ```
-- Adding Users to Groups ```usermod -aG groupname username```
-- Viewing Group Memberships ```groups username```
-- Changing Primary Group ````usermod -g new_primary_group username```  
+- Adding Users to Groups :
+  ```usermod -aG groupname username```
+- Viewing Group Memberships:
+   ```groups username```
+- Changing Primary Group
+  ````usermod -g new_primary_group username```  
 - the default groupid will be the previous groupid +1
 - to create a group with a specific group id  for example a group of name developer  and id of 2000  ```groupadd -g 2000 developer```
 - ``` groupadd -g <newgroupid> <new group name > ``` : to create a new group with a particular id
