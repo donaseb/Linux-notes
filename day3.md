@@ -62,7 +62,7 @@
 - mkdir directory name : crates new directory
 - mkdir dir1 dir2 dir3 : creates multiple directories together
 ## Copying -cp
-- cp <source file> <destination file> : copies the contents from source to destination file
+- ```cp <source file  > <destination file > ``` : copies the contents from source to destination file
 - if destination file does not exist it creates a file and then copies data into it
 - cp -r <source file or directoy > < destination file or direc> : copy contents from source to destination recursively
 ## move mv:
