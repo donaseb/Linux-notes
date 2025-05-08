@@ -126,8 +126,17 @@ username : pswd :Uid : gid: gecos : homedir: loginshell
 - ``` groupadd -g <newgroupid> <new group name > ``` : to create a new group with a particular id
 - to modify the groupid :``` groupmod -g <newgroupid> <group name> ```
 - to delete a group : can be deleted only if the primary group of the users in this group is changed
-- to delete group ``` groupdel <group name >
-####Sudo Access and Privilege Escalation :
+- to delete group ``` groupdel <group name >```
+#### Sudo Access and Privilege Escalation :
 - Adding a User to Sudo Group
 - 1.On Debian-based systems: ```usermod -aG sudo username```
 - 2.On RHEL-based systems:```usermod -aG wheel username```
+### How to login to linux machiene:
+- once the user is created the username and password along with ip of the machiene will be given to you then using that you will ssh into the machiene  
+- ```ssh username@ipaddress```
+-  it will asks for the password provide that and you will be logged into the machiene as a user
+-  if you cannot log in using ssh it might be because the password authentication will be kept as no  so to change that the admin has to log into the system ,then do ```cat /etc/ssh/sshd_config.d.60-cloudimg-settings.conf``` then inside the file editthe password authentication from no to yes
+- then do ```sudo systemctl restart ssh ```
+- if password authentication is disabled then how to log in: for this use pem file
+
+  
