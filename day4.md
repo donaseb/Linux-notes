@@ -1,15 +1,6 @@
 # user management:
 #### Topics covered
-1.user management  
-- creating user
-- fields of /etc/passwd
-- delete user
-- modify  
-2.group management
-- create group
-- fields of /etc/group
-- delete group    
-3.vi shortcuts  
+ 
 ## User management:
 - user management is required for the accpountability and also for making your linux environment secure.
 - users are required for authentication (log -in)
@@ -79,9 +70,61 @@ username : pswd :Uid : gid: gecos : homedir: loginshell
 ``` usermod -u <userid> -g<primary group> -G <secondary group> -c <gecos> -d <home dir> -s <loginshell> <existing username>```  
 ``` passwd <existing username > ```
 ### Delete auser
+- ``` userdel <existing username> ``` this will delete the user
+- ``` userdel -r <existing username > ``` : will delete the user account and home directory and all the files and directories related to this user
+- check if deleted  in the /etc/passwd, the entry for the deleted user and we will find that it is deleted
+- 
+### useradd :
+- this command is used to create a user
+- ```useradd <username > ```
+- if you do  ```ls /home  ``` we will find that the home directory for the user is not created
+- so in useradd only the user is created and the it does not create the home directory fo user .
+- useradd is usefull to create user in scripts
+- to create a user along with home directory usin useradd : ``` useradd -m username```
+- To specify a shell:```useradd -s /bin/bash username```
+### adduser :
+- ``` adduser username ``` this command also creates user
+- the difference between useradd and adduser is that ,while using adduser along with the creation of user a home directory for the user is created and also users details will also be asked .
+- the other details of the user will also be added
+** command to change the password of user every 90 days :
+  - ``` chage -M 90 username ```
+  - to lock a user account : ``` passwd -l username ```
+  - to unlock the user account : ``` passwd -u username ```
+** how to create password to the user :
+- ``` passwd username ```
+### Modifying Users
+- Change the username ``` usermod -l new_username old_username```
+- Change the home directory: ```usermod -d /new/home/directory -m username```
+- Change the default shell ```usermod -s /bin/zsh username```
+
 ** how to open the file
   ``` vim filename ```
   -using vim you can see the contents as well as you can edit the file
   -to just display the contents of the file
   ``` cat filename ```
-  
+## Group management :  
+- A group is the collection of similar types of users which is grouped together to arrange them easily.
+- any permission applied to the group will be applied to the entire users of that group
+- mainly used to manage multiple users simultaneously
+- all groups information will be stored inside /etc/group
+### Fields inside /etc/group :  
+- 4 fields are inslde the /etc/group :  
+* groupid : is the unique number allocated to every group for systems reference.
+* group_name: It is the name of group. If you run ls -l command, you will see this name printed in the group field
+* Password: Generally password is not used, hence it is empty/blank. It can store encrypted password. This is useful to implement privileged groups
+* Group List: It is a list of user names of users who are members of the group. The user names, must be separated by commas.
+### create group :
+- to create group with default values : ``` groupadd <new groupname > ```
+- Adding Users to Groups ```usermod -aG groupname username```
+- Viewing Group Memberships ```groups username```
+- Changing Primary Group ````usermod -g new_primary_group username```  
+- the default groupid will be the previous groupid +1
+- to create a group with a specific group id  for example a group of name developer  and id of 2000  ```groupadd -g 2000 developer```
+- ``` groupadd -g <newgroupid> <new group name > ``` : to create a new group with a particular id
+- to modify the groupid :``` groupmod -g <newgroupid> <group name> ```
+- to delete a group : can be deleted only if the primary group of the users in this group is changed
+- to delete group ``` groupdel <group name >
+####Sudo Access and Privilege Escalation :
+- Adding a User to Sudo Group
+- 1.On Debian-based systems: ```usermod -aG sudo username```
+- 2.On RHEL-based systems:```usermod -aG wheel username```
