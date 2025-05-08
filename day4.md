@@ -61,7 +61,7 @@ username : pswd :Uid : gid: gecos : homedir: loginshell
 - all the fields excet gecos in /etc/passwd is mandatory fields needs to provided while creating user ,if not  system gives default values
   *Default values:
   - uid -previous user's id +1
-  - grpid- <username>  
+  - grpid- username  
   - homedirectory - /home/username
   - loginshell - /bin/bash
 - ** how to check if the user is created:
