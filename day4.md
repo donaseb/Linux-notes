@@ -4,7 +4,7 @@
 - creating user
 - fields of /etc/passwd
 - delete user
-- modify 
+- modify   
 2.group management
 - create group
 - fields of /etc/group
