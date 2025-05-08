@@ -4,11 +4,11 @@
 - creating user
 - fields of /etc/passwd
 - delete user
-- modify
+- modify  
 2.group management
 - create group
 - fields of /etc/group
-- delete gropu
+- delete group    
 3.vi shortcuts  
 ## User management:
 - user management is required for the accpountability and also for making your linux environment secure.
