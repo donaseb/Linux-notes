@@ -70,7 +70,6 @@
 - to rename a file or directory : mv <old name> <new name>
 ## Deleting files and directories:
 - rm <filename> : to delete the file
-- rm -r <dirname> : to delete directory
-- rm -rf <dirname> : to delete directory without questions  
+- rm -rf <dirname> : to delete directory 
 
 
