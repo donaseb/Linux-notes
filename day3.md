@@ -49,27 +49,27 @@
 ## Creating files:
 - touch  filename : creates an empty or zero bit file
 - touch existing filename : to changfe the time stamp of the existing file to current tie without altering or modifing data  
-- cat > new filename: creates new file and add data in it,after adding data into this file to save and exit ```ctrl + d``` to sAve and exit
-- cat existing filename : shows or displays the contents of the file
-- cat > existing filename : the existing contents of this file will be overwritten by this new contents added to this file,save and exit and after this when we display the contents this new data is shown
-- cat >> existing filename : appends or add the new content to the existing file,thec ctrl +d
-- vim filename : to create file and also to add contents to this file
-- vim existing filename : this shows the contents inside the file and also allows to edit or add new data to it
-- vim file name : opens the editor ,to add inot the file press ``` esc + i ```  this makes the file in insert mode
+- ```cat > new filename```: creates new file and add data in it,after adding data into this file to save and exit ```ctrl + d``` to sAve and exit
+- ```cat existing filename``` : shows or displays the contents of the file
+- ```cat > existing filename``` : the existing contents of this file will be overwritten by this new contents added to this file,save and exit and after this when we display the contents this new data is shown
+- ```cat >> existing filename``` : appends or add the new content to the existing file,thec ctrl +d
+- ```vim filename``` : to create file and also to add contents to this file
+- ```vim existing filename``` : this shows the contents inside the file and also allows to edit or add new data to it
+- ```vim file name``` : opens the editor ,to add inot the file press ``` esc + i ```  this makes the file in insert mode
 -  to exit without saving ``` esc + : q!```
 -  to save and exit ``` esc + :wq! ```
 ## Creating directories :
-- mkdir directory name : crates new directory
-- mkdir dir1 dir2 dir3 : creates multiple directories together
+- ```mkdir directory name``` : crates new directory
+- ```mkdir dir1 dir2 dir3``` : creates multiple directories together
 ## Copying -cp
 - ```cp <source file  > <destination file > ``` : copies the contents from source to destination file
 - if destination file does not exist it creates a file and then copies data into it
-- cp -r <source file or directoy > < destination file or direc> : copy contents from source to destination recursively
+- ```cp -r <source file or directoy > < destination file or direc>``` : copy contents from source to destination recursively
 ## move mv:
-- mv <source> <destination> : cut from the source and paste it in destination
-- to rename a file or directory : mv <old name> <new name>
+- ```mv <source> <destination>``` : cut from the source and paste it in destination
+- to rename a file or directory : ```mv <old name> <new name>```
 ## Deleting files and directories:
-- rm <filename> : to delete the file
-- rm -rf <dirname> : to delete directory 
+-``` rm <filename>``` : to delete the file
+- ```rm -rf <dirname>``` : to delete directory 
 
 
