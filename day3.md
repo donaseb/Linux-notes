@@ -54,10 +54,7 @@
 - ```cat > existing filename``` : the existing contents of this file will be overwritten by this new contents added to this file,save and exit and after this when we display the contents this new data is shown
 - ```cat >> existing filename``` : appends or add the new content to the existing file,thec ctrl +d
 - ```vim filename``` : to create file and also to add contents to this file
-- ```vim existing filename``` : this shows the contents inside the file and also allows to edit or add new data to it
-- ```vim file name``` : opens the editor ,to add inot the file press ``` esc + i ```  this makes the file in insert mode
--  to exit without saving ``` esc + : q!```
--  to save and exit ``` esc + :wq! ```
+
 ## Creating directories :
 - ```mkdir directory name``` : crates new directory
 - ```mkdir dir1 dir2 dir3``` : creates multiple directories together
@@ -70,6 +67,26 @@
 - to rename a file or directory : ```mv <old name> <new name>```
 ## Deleting files and directories:
 -``` rm <filename>``` : to delete the file
-- ```rm -rf <dirname>``` : to delete directory 
-
-
+- ```rm -rf <dirname>``` : to delete directory
+### vim commands:
+- Modes in VI Editor
+Normal Mode (default) – Used for navigation and command execution.  
+Insert Mode – Used for text editing (press i to enter, Esc to exit).  
+Command Mode – Used for saving, quitting, and searching (press : in Normal mode).
+- to write in a file you have to go to insert mode
+-  ```vim filename``` : to create file and also to add contents to this file
+-  ```vim existing filename``` : this shows the contents inside the file and also allows to edit or add new data to it
+- ```vim file name``` : opens the editor ,to add inot the file press ``` esc + i ```  this makes the file in insert mode,so start writing in this file
+-  to exit without saving ``` esc + : q!```
+-  to save and exit ``` esc + :wq! ```
+-  print the contents using `` cat filename ```
+-  to navigate in a file : if it is large file if you neeed to go to the first line ```esc+:0 ``` pressing escape brings the file from insert mode to normal mode,then press :0
+-  go to line 500 ``` esc +:500```
+-  go to last line : ``` esc + shift g ```
+-  ``` esc +shift + o ``` Open a new line above
+-  ``` esc +shift +O ```  Open a new line below
+-  open file without printing all the contents ``` less filename ```
+-  print only last 20 lines of the file ``` tail -20 filename```
+-  first 100 lines ```head -100 filename ```
+-  to add a new line without opening the file ie append a new line to the existing file contents ``` echo 'this is a new line you add contents here ' >> filename```
+  
