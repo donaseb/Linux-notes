@@ -1,44 +1,187 @@
-# File Permissions :
-- permissions are applied on files and directories which defines the level of access for a particular user or group
-- 3 parts of permissions :  
-  1.read(r): to view the contents of the files and directories  
-  2.write(w) : to create /modify/delete the contents of the file or directory  
-  3.execute(x) : to execute  a script / install a package  
-- permissions can be of 3 categories:  
-  1.owner (u) : By default who created the files and directories are reffered to as owner    
-  2. group (g): by default the primary group of the owner is defined as the group of the file or directory  
-  3.other (o): apart from owner,and group members all other users and groups are reffered to as others
-- whenever you create a file ,linux server will setup a basic permissions to the files and even to folders by default,if we need to modify the default permissions  you need  commands like chmod,chown
-- Example of Permission Structure:
-Permissions are displayed using the ls -l command in the following format:
+
+## File Permissions?
+
+Permissions are applied on **files** and **directories** to define access levels for:
+
+- The file owner
+- Members of the owner's group
+- All other users (others)
+
+---
+
+##  Types of Permissions
+
+Each permission is represented by a single letter:
+
+| Permission | Symbol | Meaning                                             |
+|------------|--------|-----------------------------------------------------|
+| Read       | `r`    | View contents of a file or list a directory         |
+| Write      | `w`    | Modify or delete the file or directory contents     |
+| Execute    | `x`    | Run a file/script or access a directory             |
+
+---
+
+##  Categories of Users
+
+1. **Owner (u)**  
+   The user who created the file/directory.
+
+2. **Group (g)**  
+   The primary group of the owner. By default, new files inherit the owner’s primary group.
+
+3. **Others (o)**  
+   All users who are not the owner or in the group.
+
+---
+
+## ⚙️ Default Permissions
+
+When a file or directory is created, Linux assigns default permissions based on the user's umask value. You can modify these permissions using:
+
+- `chmod` – change permissions
+- `chown` – change ownership
+
+---
+
+##  Example of Permission Structure
+
+Using `ls -l`:
+```bash
+-rwxr-xr--  1 user1 group1 0 Jan 1 00:00 /home/user1/file.txt
 ```
--rwxr-xr--  1 user1 group 0 date /home/user1/file.txt
+###  Breakdown of the Fields
+
+| Section         | Description                                                                 |
+|-----------------|-----------------------------------------------------------------------------|
+| `-` or `d`      | Indicates the type: `-` for a **file**, `d` for a **directory**             |
+| `rwx` (Owner)   | Owner's permissions: read (`r`), write (`w`), execute (`x`)                 |
+| `r-x` (Group)   | Group's permissions: read (`r`), no write (`-`), execute (`x`)              |
+| `r--` (Others)  | Others' permissions: read (`r`), no write/execute (`--`)                    |
+
+---
+
+###  Example Permission: `rw-r--r--`
+
+This permission string means:
+
+- **Owner** has **read and write** permissions (`rw-`)
+- **Group** has **read-only** access (`r--`)
+- **Others** also have **read-only** access (`r--`)
+
+
+>  **Tip:** Even if a file has `rwxrwxrwx` permissions, it cannot be accessed unless the **directory** it’s in also grants appropriate permissions.
+
+
+##  File Permissions and Multiple Users
+
+###  User-to-User Access
+
+When multiple users exist on a Linux server, file access depends on:
+- **File Permissions**
+- **Directory Permissions**
+- **Group Membership**
+
+For example, consider the users `user1` and `user2`. Based on the permissions of files created by `user1`, `user2` may have read, write, and execute access.
+
+To check the permissions of files or directories, use the following command:
+
+```bash
+ls -ltr
 ```
-- The first character: - for files or d for directories.
+This will display the files and directories along with their permission structure.
+### Example: File and Directory Permissions
+####File Permissions
+-Files are denoted by the following structure:
 
-- The next three characters: Owner's permissions (read, write, execute).
+```bash
 
-- The next three characters: Group's permissions (read, write, execute).
+-rwxrwxrwx
+```
+Owner's Permissions: The first part (rwx) represents the owner's permissions (read, write, execute).
 
--The last three characters: Others' permissions (read, write, execute).
+Group's Permissions: The second part (rwx) represents the group's permissions (read, write, execute).
 
-- So, for example, the permissions rw-r--r-- would indicate:
+Others' Permissions: The third part (rwx) represents the permissions for others (read, write, execute).
 
-- Owner has read and write permissions.
+### Directory Permissions
+#### Directories are denoted by:
 
-- Group has read-only access.
+```bash
 
-- Others have read-only access.
-- so if you have 2 users ,user1 and user2 in your server and then by default the files created by  user1 can only be read by the other ,the  user2 cannot update the file or delete the files created by the other user1.
-- to check the permissions ``` ls-ltr``` this will lists all the files and folders inside the present working directory along with its permissions
-- so if you create a file test in your home directoy and do ls-ltr you could find  the permissions of this file created
-- files are denoted by -rwx|rwx|rwx| and folders drwx|rwx|rwx
-- so for example permissions of my file test is rw-|r--|r-- ,in this the first part represents the owner or user who created the file,the second part of rwx denotes the users in the primary group of this user,and 3rd part of rwx denotes the permissions to every other users ie users who are not the owner or not in the primary group of the user cretaed the file
-- for example there are 2 users dona and demo,these users are in different  groups,so user dona created a file test.sh inside the home directory with permissions -rwx|r--|r--,this means that owner or dona who created this file has full read ,write and execute permissions,the users in the group and other has only read permission
-- other user can access the file only if that user has access to home directory of user dona
-- for example if the permisssions of home directory of dona  is drwx|rw-|---, means  dona has full read ,write and execute permissions,user in same group has read and write permissions  and other has no permissions
-- so users who have access to the folder could only acces tthe file inside it,so here the file is inside the home directory so who has access to home directory can only access the file
-- if file has rwx|rwx|rwx but the home directory has permisssion drwx|r--|---,only people in group has read access and the other users hasnot access ,ebven though there is full access in the file it folows the permission of the folder 
+drwxrwxrwx
+```
+d indicates that this is a directory.
+
+The rest (rwxrwxrwx) follows the same permission structure as files.
+#### Example:
+-File: test.sh
+
+ * Owned by: dona
+
+ * Permissions: rwx|rw-|rw- (i.e., 764)
+
+  -This means:
+
+* dona (owner): can read, write, execute
+
+* group: can read and write
+
+* others: can read
+
+- Directory: /home/dona
+
+ - Permissions: rwx|r--|--- (i.e., 740)
+
+This means:
+
+- dona: full access
+
+- group: can read only
+
+- others: no access at all
+
+### Can demo access test.sh?:
+- No, because,Even though test.sh is world-readable, the /home/dona directory has --- for "others" — and if a user can’t execute a directory, they cannot traverse it to reach any file inside.
+- To allow user demo to access test.sh, /home/dona directory needs at least execute (x) permission for others or for the group that demo is in.
+- Grant 'execute' permission to 'others' on /home/dona:
+-
+  ``` chmod o+x /home/dona ```
+- This allows all users to "enter" the directory
+- Better security: Add demo to a group and change /home/dona group accordingly, then set appropriate permissions — more secure and specific.
+- Who can make this change?  :  Only root or dona (the owner of /home/dona) can change the permissions of /home/dona.
+### Changing permissions:
+
+#### 1 . Symbolic method (Relative method ) :  
+- called symbolic becuse we use symbols
+- called Relative method because we could  give new permissions only if we know previous permission
+- so there is a dependency of previous permission .So calledrelative
+- if in a file test  r--|r-x|rwx → existing permission,how to change the permission to rwx|rw-|r--
+- ``` chmod u+wx,g+w,g-x,o-wx test ```
+- to check permission ls-l
+- if to add execute to all u,g,o
+- ```chmod ugo+x test ```
+- or ``` chmod a+x test ```  
+#### 2 . Numeric (Absolute ) method : 
+- if in a file test  r--|r-x|rwx → existing permission,how to change the permission to rwx|rw-|r--
+- r = 4,w = 2,x =1 ,rwx=7
+- ``` chmod 764 test ``` →  rwx|rw-|r--  → 7-rwx of owner,6-rw of grop,4 - r of other
+- no dependencies on previous permissions
+- just apply the permissions you required ,so that is why called absolute method
+## Access Control List :
+- The disadvantageof chmod is permissions can be applied onlyy for  3 major categories 9 owner,group, and others ).
+- ACL is used so that to define permissions to specific users and groups without affecting other users and groups
+- so if in a group  sales there are users u1,u2,u3 and group finanace u4,u5,u6 
+- if you want to change the permission of the specific user without affecting the permission of the other users then use ACL
+- ``` setfacl -m u:u3 :r-- /logic ```  here we are are giving read access to /logic directry without affecting permissions of other users in the group
+- ``` setfacl -m u:u1 : r-x /logic ```
+- apply acl to group ``` setfacl -m g : sales -w- /logic ```
+- setfacl is to apply ACL
+- getfacl is to view to
+  
+
+
+
+
 
   
   
