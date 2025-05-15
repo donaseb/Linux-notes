@@ -1,4 +1,4 @@
-# 🐧 Linux Fundamentals
+# Linux Fundamentals
 
 This file contains notes on fundamental Linux concepts, distributions, setup, and package managemer.
 
