@@ -24,7 +24,7 @@ This file contains notes on fundamental Linux concepts, distributions, setup, an
 - System Packages and System Libraries
 - Kernel
 - Hardware
-  ### 🐧 Linux Distributions
+  ### Linux Distributions
 
 Linux is open-source, allowing companies to create their own distributions by adding custom functionalities. Examples include:
 
