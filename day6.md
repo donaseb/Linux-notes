@@ -41,6 +41,145 @@ ps -aux
 - To find a Java process:``` ps aux | grep java ```
 - To filter the actual Java process (excluding the grep process itself):```ps aux | grep java | grep -v grep  ```
 - Use kill -9 <PID> to forcefully terminate a process if a regular kill doesn’t work
+- to get the thread dumbs,ie logs of all the procersses and subprocess running inside a process :
+  ``` kill -3 ```
+### stop and resume a process:
+-if u want to temporarily stop a process:
+- get the process and pid ``` ps awx```
+- so to stop the process ``` kill -STOP process id ```
+- to restart the process ``` kill -CONT PID ```
+### Prioritize and Depriritize :
+- use the comand renice
+  ### Stop and Resume a Process
+
+- To temporarily stop a process:
+  - Get the process and its PID using:
+    ```
+    ps awx
+    ```
+  - Stop the process using:
+    ```
+    kill -STOP <PID>
+    ```
+  - Restart the process using:
+    ```
+    kill -CONT <PID>
+    ```
+
+---
+
+### Prioritize and Deprioritize a Process
+
+- Use the `renice` command to adjust process priority:
+  - Set priority:
+    ```bash
+    renice -n 10 -p <PID>
+    ```
+  - Priority range is from `-20` (highest priority) to `19` (lowest priority).
+    - Example:
+      ```bash
+      renice -n -5 -p <PID>  # Higher priority
+      renice -n 10 -p <PID>  # Lower priority
+      ```
+- Why prioritize?  
+  By default, the CPU assumes a process using more time is more important. Managing priorities helps allocate resources more efficiently.
+
+---
+
+### Special Processes (Services)
+
+- Services are background processes that start during system boot.
+  - Examples: web servers (nginx, Apache), Java/Python apps, shell scripts
+- To list running services:
+  ```bash
+  systemctl list-units --type=service
+To stop a service:
+```systemctl stop <servicename> ```
+To start a stopped service:
+
+```systemctl start <servicename>```
+Can you convert a process to a service? Yes.
+# Monitoring
+###Monitor CPU, memory, and disk usage of processes:
+Command	Description:
+-top	Real-time CPU/memory usage, process info
+-htop	Enhanced visual version of top
+-vmstat	System performance report
+-free -m	Memory usage in MB (script-friendly)
+-free -h	Memory usage in human-readable format
+-nproc	Shows number of CPUs
+
+### Disk and memory:
+
+-df -h           : Disk usage per partition
+-du -sh          :Folder disk usage (run inside the folder)
+-Use grep, awk, sed on script-friendly outputs like free -m.
+### Disk Space Utilization
+View disk usage:
+```df -h```
+Check specific folder usage:
+
+```du -sh```
+Use these for quick checks. For advanced monitoring, integrate with:Prometheus,Grafana,Email or Slack notifications
+# Disk Management
+- When existing volume space is low, add a new volume:
+
+- Use lsblk to view attached volumes:
+```
+lsblk
+```
+To list partition info:
+```
+fdisk -l
+```
+```Example:
+
+Existing volume: /dev/xvda (8GB)
+
+New volume: /dev/xvdf (10GB)
+````
+
+-Format the new volume:
+```
+mkfs -t ext4 /dev/xvdf
+```
+- Create a mount point:
+ ```
+mkdir -p /mnt/demovolume
+```
+- Create partitions (optional):
+```gdisk /dev/xvdf
+press: p → n → Enter → Enter → last sector → p → w
+partprobe
+```
+- Verify with:
+```
+fdisk -l
+```
+-Format new partitions:
+
+```
+mkfs.ext4 /dev/xvdf1
+```
+- Mount the volume:
+```
+mount /dev/xvdf1 /mnt/demovolume
+```
+To verify:
+```
+blkid or lsblkor df-ht
+```
+
+-To make the mount permanent, edit /etc/fstab:
+
+```
+/dev/xvdf1   /mnt/demovolume   ext4   defaults   0 0
+```
+- To unmount a volume:
+```
+umount /mnt/demovolume
+```
+
 
 
 
