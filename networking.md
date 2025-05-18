@@ -83,6 +83,90 @@
 - 11000000.01000000.00100000.00000111
 
 - Each part is 8 bits (1 byte) long, and the full IPv4 address is 32 bits in total.
+# Subnetting and Ports :
+
+## 🔹 What is a Subnet?
+- A **subnet** is short for "sub-network" — it refers to dividing a large network into smaller logical networks.
+- For example, if a network has ~65,000 IP addresses, it can be split into multiple subnets based on departments or security needs:
+  - One subnet can be used by the **Finance Team** (secure, isolated).
+  - Another subnet can be used by **general employees** (open).
+
+### 🔐 Why Subnetting?
+- **Security**: A compromised device in one subnet does **not** affect devices in another.
+- **Privacy and Isolation**: You can isolate sensitive resources from the rest of the network.
+
+---
+
+## 🔹 Types of Subnets
+1. **Private Subnet**:
+   - No direct access to the internet.
+   - Ideal for databases, backend services, and secure internal applications.
+
+2. **Public Subnet**:
+   - Has internet access.
+   - Internet access is enabled by associating a **route table** with a route pointing to an **Internet Gateway**.
+
+---
+
+## 🔹 CIDR (Classless Inter-Domain Routing)
+- CIDR is used to define IP ranges in subnets.
+- Format: `IP_address/CIDR_notation`
+
+### Example:
+- VPC CIDR block: `172.16.0.0/16` → Gives 65,536 IPs (`2^(32-16)`)
+- Subnet CIDR block: `172.16.3.0/24` → Gives 256 IPs (`2^(32-24)`)
+
+You can allocate:
+- `172.16.3.0/24` → 256 IPs: 172.16.3.0 to 172.16.3.255
+- `172.16.4.0/24`, `172.16.5.0/24` ... etc., for other 256-IP subnets.
+
+---
+
+## 🔹 Subnet CIDR Calculations
+
+| CIDR Notation | Number of IPs | Usage Example                     |
+|---------------|----------------|----------------------------------|
+| /32           | 1              | Loopback or a single host        |
+| /31           | 2              | Point-to-point links             |
+| /30           | 4              | Very small subnet                |
+| /26           | 64             | Small team or app cluster        |
+| /24           | 256            | Commonly used for class C blocks |
+| /16           | 65,536         | Class B, large enterprise        |
+| /8            | 16 million+    | Class A, very large organizations|
+
+---
+
+## 🔹 IP Address Classes
+
+| Class | CIDR Example   | Range           | Number of IPs     |
+|-------|----------------|------------------|-------------------|
+| A     | 10.0.0.0/8     | 10.0.0.0–10.255.255.255 | 16M+     |
+| B     | 172.16.0.0/12  | 172.16.0.0–172.31.255.255 | 1M+   |
+| C     | 192.168.0.0/16 | 192.168.0.0–192.168.255.255 | 65K+ |
+
+> These ranges are **private IP ranges** — they are reserved and not routable over the public internet.
+
+---
+
+## 🔹 Ports
+
+- A **port** identifies a specific application or service running on a machine.
+- Each application listens on a specific port (e.g., web servers often use port `80` or `443`).
+- You access an application like this: `IP:PORT` (e.g., `192.168.0.5:8080`).
+
+---
+
+### ✅ Summary
+- Subnetting helps isolate and protect parts of your network.
+- CIDR notation defines how many IPs a subnet contains.
+- Private/public subnets are determined by their access to the internet.
+- Ports are essential for distinguishing services on the same machine.
+
+---
+
+
+
+
 
 
 
