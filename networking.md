@@ -27,7 +27,7 @@
     --------.--------.--------.--------
     (8 bits) (8 bits) (8 bits) (8 bits)
     ```
-  ### Breakdown of Each 8-bit Byte in an IP Address
+### Breakdown of Each 8-bit Byte in an IP Address
 
 - Each part (octet) of an IPv4 address is 8 bits, and each bit represents a power of 2:
 - Bit Position: 7 6 5 4 3 2 1 0
