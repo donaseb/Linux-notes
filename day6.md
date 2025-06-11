@@ -102,12 +102,12 @@ Can you convert a process to a service? Yes.
 # Monitoring
 ### Monitor CPU, memory, and disk usage of processes:
 Command	Description:
--top	Real-time CPU/memory usage, process info
--htop	Enhanced visual version of top
--vmstat	System performance report
--free -m	Memory usage in MB (script-friendly)
--free -h	Memory usage in human-readable format
--nproc	Shows number of CPUs
+- top	Real-time CPU/memory usage, process info  
+- htop	Enhanced visual version of top
+- vmstat	System performance report
+- free -m	Memory usage in MB (script-friendly)
+- free -h	Memory usage in human-readable format
+- nproc	Shows number of CPUs
 
 ### Disk and memory:
 
