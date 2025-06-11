@@ -18,7 +18,7 @@ As administrators, to manage this effectively, we perform several tasks:
 
 - To list some running processes:
   ```bash
-  ps ```
+  ps  ```
 - To list all running processes:
 ```
 ps -aux
@@ -26,8 +26,8 @@ ps -aux
 - To check the number of processes:
   ``` ps aux | nl ```
 - To get only the total number of processes:
-``` ps aux | wc -l ```
-###ps -aux vs ps -ef
+``` ps aux | wc -l ```  
+### ps -aux vs ps -ef
 - Both commands list running processes.
 
 -ps -aux displays:User (who initiated the process),PID (Process ID — a unique identifier),CPU and memory usage
